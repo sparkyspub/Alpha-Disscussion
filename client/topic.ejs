@@ -1,0 +1,35 @@
+<div>
+  <p><a href="#/dashboard">Dashboard</a> | <a href="#/">Logout</a></p>
+  <h3><a href="#/user/{{topic.user_id}}" ng-bind="topic.name"></a>posted:</h3>
+  <h4><span ng-bind="topic.title"></span></h4>
+  <h5><span ng-bind="topic.description"></span></h5>
+  <div class="row form-group">
+    <label class="col-md-2 control-label">Post your answer here...</label>
+    <textarea class="col-md-3" rows="4" ng-model="newPost.post"></textarea>
+
+  </div>
+  <div class="row form-group">
+    <button class="btn btn=success col-md-1 col-md-offset-4" ng-click="createPost(newPost, name)">Post</button>
+  </div>
+  <div class="row form-group">
+    <div ng-repeat="post in posts | orderBy: created_at: reverse">
+      <a href="#/user/{{post.user_id}}" ng-bind="post.name"></a>
+      <p ng-bind="post.created_at | date: 'MMMM,dd,yyyy - h:ma'"></p>
+      <p ng-bind="post.post"></p>
+      <div ng-repeat="comment in post.comments">
+        <br>
+        <a href="#/user/{{comment.user_id}}" style="margin-left: 40px" ng-bind="comment.name"></a>
+        <p style="margin-left: 40px", ng-bind="comment.created_at | date: 'MMMM, dd, yyyy - h:ma'"></p>
+        <p style="margin-left: 40px" ng-bind="comment.comment"></p>
+      </div>
+      <div ng-if="post">
+        <label style="margin-left: 40px" class="col-md-2 control-label">Post a comment</label>
+        <textarea style="margin-left: 40px" class="col-md-2" rows="4" ng-model="newComment.comment"></textarea>
+      </div>
+      <div class="row form-group">
+        <button class="btn btn-success col-md-1 col-md-offset-3" ng-click="createComment(newComment, post, name)">Comment</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

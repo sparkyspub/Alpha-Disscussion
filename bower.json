@@ -1,0 +1,14 @@
+{
+  "name": "Discussion",
+  "authors": [
+    "Jorge Carmona <jcarmonausf@gmail.com>"
+  ],
+  "description": "Discussion Board",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4"
+  }
+}
